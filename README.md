@@ -1,6 +1,6 @@
 # CMPS 2200  Recitation 01
 
-**Name (Team Member 1):**_________________________  
+**Name (Team Member 1):**_david webster  
 **Name (Team Member 2):**_________________________
 
 In this recitation, we will investigate asymptotic complexity. Additionally, we will get familiar with the various technologies we'll use for collaborative coding.
@@ -48,11 +48,11 @@ We'll compare the running times of `linear_search` and `binary_search` empirical
 
 - [ ] 4. Describe the worst case input value of `key` for `linear_search`? for `binary_search`? 
 
-**TODO: your answer goes here**
+**TODO: your answer goes here** the worst case input value of key for linear search is the last value since that is the value that is checked last. the worst case input value key for binary search can be the last or first key, or the key value immediately to the right and left of the middle value, since those values are checked last.
 
 - [ ] 5. Describe the best case input value of `key` for `linear_search`? for `binary_search`? 
 
-**TODO: your answer goes here**
+**TODO: your answer goes here** the best case input value key for linear_search is the first value since that value is checked first. the best case for binary search is the middle value since that value is checked first.
 
 - [ ] 6. Complete the `time_search` function to compute the running time of a search function. Note that this is an example of a "higher order" function, since one of its parameters is another function.
 
@@ -61,12 +61,29 @@ We'll compare the running times of `linear_search` and `binary_search` empirical
 - [ ] 8. Call `print_results(compare_search())` and paste the results here:
 
 **TODO: add your timing results here**
+|            n |   linear |   binary |
+|--------------|----------|----------|
+|       10.000 |    0.003 |    0.007 |
+|      100.000 |    0.010 |    0.011 |
+|     1000.000 |    0.103 |    0.007 |
+|    10000.000 |    0.971 |    0.010 |
+|   100000.000 |   11.043 |    0.039 |
+|  1000000.000 |  200.088 |    0.046 |
+| 10000000.000 | 2157.594 |    0.049 |
 
 - [ ] 9. The theoretical worst-case running time of linear search is $O(n)$ and binary search is $O(log_2(n))$. Do these theoretical running times match your empirical results? Why or why not?
 
-**TODO: your answer goes here**
+**TODO: your answer goes here** yes as we can see from the table, that the times for the linear search grew linearly. whereas the binary search grew logarithmically except for the first 3 results in which we get outliers.
 
 - [ ] 10. Binary search assumes the input list is already sorted. Assume it takes $\Theta(n^2)$ time to sort a list of length $n$. Suppose you know ahead of time that you will search the same list $k$ times. 
   + What is worst-case complexity of searching a list of $n$ elements $k$ times using linear search? **TODO: your answer goes here**
+    + O(nk)
+
   + For binary search? **TODO: your answer goes here**
+      + O(n^2)+O(nk)
   + For what values of $k$ is it more efficient to first sort and then use binary search versus just using linear search without sorting? **TODO: your answer goes here**
+      + solve for kn>n^2+klgn
+      + kn-klgn>n^2
+      + k(n-lgn)>n^2
+      + k>(n^2)/(n-lgn)
+      
